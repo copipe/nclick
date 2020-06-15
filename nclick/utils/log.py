@@ -31,7 +31,7 @@ class Log:
         logger_.addHandler(ch)
 
     @classmethod
-    def write(cls, logger_name: str, level: str, message: str):
+    def write(cls, message: str, logger_name: str, level: str):
         if level == 'info':
             getLogger(logger_name).info(message)
         if level == 'debug':
