@@ -1,2 +1,5 @@
+build
+dist
+nclick.egg-info
 __pycache__/
 .envrc
