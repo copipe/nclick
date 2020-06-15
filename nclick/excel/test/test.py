@@ -1,13 +1,13 @@
 import sys
 from copy import copy
 import warnings
+import codecs
 sys.path.append('..')
 warnings.filterwarnings(action='ignore', module='sklearn', message='^internal gelsd')
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
 from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -18,6 +18,11 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, median_abso
 
 from to_excel import *
 from cell_style import *
+
+
+def usascii(name):
+    if name.lower() == 'us-ascii':
+        return codecs.lookup('utf-8')
 
 def evaluate(y_true, y_pred):
     mean_ae = mean_absolute_error(y_true, y_pred)
@@ -37,7 +42,7 @@ def yyplot(y_true, y_pred, output_path):
     plt.savefig(output_path)
     plt.close()
 
-
+codecs.register(usascii)
 wb = Workbook()
 
 # dataset Sheet
@@ -95,7 +100,7 @@ for i, (model, model_symbol, model_name) in enumerate(model_set):
     # 学習
     model.fit(X_train, y_train)
 
-    # 予測（訓練データ） 
+    # 予測（訓練データ）
     y_train_pred = model.predict(X_train)
     eval_result = evaluate(y_train, y_train_pred)
     filepath = f'result/{model_symbol}_train.png'
@@ -110,9 +115,9 @@ for i, (model, model_symbol, model_name) in enumerate(model_set):
                 filepath,
                 start_row=4,
                 start_col=8+i*22)
-    
 
-    # 予測（試験データ） 
+
+    # 予測（試験データ）
     y_test_pred = model.predict(X_test)
     eval_result = evaluate(y_test, y_test_pred)
     filepath = f'result/{model_symbol}_test.png'

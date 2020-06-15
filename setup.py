@@ -13,6 +13,8 @@ setup(
         'sklearn',
         'tqdm',
         'openpyxl',
+        'autopep8',
+        'flake8',
     ],
     author='copypaste',
     description='Code for Laziness.',

@@ -11,7 +11,7 @@ from cell_style import *
 def get_location_symbol(row_idx,
                         col_idx):
     """
-    セルの位置情報を表す文字列を返す（例: "B12"）	
+    セルの位置情報を表す文字列を返す（例: "B12"）
 
     Parameters
     ----------
@@ -33,7 +33,6 @@ def get_location_symbol(row_idx,
     location_symbol = f'{get_column_letter(col_idx)}{row_idx}'
     return location_symbol
 
-
 def set_value(ws,
               value,
               idx_row,
@@ -45,7 +44,7 @@ def set_value(ws,
     ----------
     ws : openpyxl worksheet
         値を代入するExcel Sheet
-    value : 
+    value :
         代入する値
     idx_row : integer
         代入するセルの行番号
@@ -158,7 +157,6 @@ def fill_cell(ws,
             else:
                 set_style(ws, style_name, idx_row, idx_col)
 
-
 def set_number_format(ws,
                       start_row,
                       end_row,
@@ -188,7 +186,6 @@ def set_number_format(ws,
             cell_loc = get_location_symbol(idx_row, idx_col)
             ws[cell_loc].number_format = number_format
 
-
 def dataframe_to_sheet(df,
                        ws,
                        start_row=1,
@@ -216,15 +213,15 @@ def dataframe_to_sheet(df,
         headerを書き出すか否か
     index_cols_num : integer
         indexとして扱うカラムの数
-    header_style : 
+    header_style :
         headerのstyle
-    index_style : 
+    index_style :
         indexのstyle
-    cell_style : 
+    cell_style :
         cellのstyle
     """
     n_rows, n_cols = df.shape
-    
+
     # 値の書き出し
     rows = dataframe_to_rows(df, index=False, header=header)
     for r_idx, row in enumerate(rows):
@@ -257,7 +254,7 @@ def dataframe_to_sheet(df,
                   start_col+index_cols_num,
                   start_col+n_cols,
                   cell_style)
-    
+
     # カラムごとに数値フォーマットを適用
     if type(number_format) == dict and len(number_format) != 0:
         cols = df.columns.tolist()
@@ -295,7 +292,7 @@ def set_column_width(ws,
         カラムの幅
     """
     col_symbol = get_column_letter(col_idx)
-    ws.column_dimensions[col_symbol].width = width 
+    ws.column_dimensions[col_symbol].width = width
 
 def set_row_height(ws,
                   row_idx,
@@ -312,7 +309,7 @@ def set_row_height(ws,
     height : float
         行の幅
     """
-    ws.row_dimensions[row_idx].height = height 
+    ws.row_dimensions[row_idx].height = height
 
 def autoresize_columns_width(ws,
                              ratio=1.5):
@@ -327,22 +324,21 @@ def autoresize_columns_width(ws,
         幅の拡大率
     """
     for col in ws.columns:
+        unmerged_cells = list(filter(lambda cell_to_check: cell_to_check.coordinate not in ws.merged_cells, col))
         max_length = 0
-        column = col[0].column
         for cell in col:
             try:
                 if len(str(cell.value)) > max_length:
                     max_length = len(cell.value)
             except TypeError:
                 pass
-        adjusted_width = (max_length + 2) * ratio 
-        ws.column_dimensions[column].width = adjusted_width
-
+        adjusted_width = (max_length + 2) * ratio
+        ws.column_dimensions[unmerged_cells[0].column_letter].width = adjusted_width
 
 def paste_image(ws,
                 image_path,
                 start_row,
-                start_col): 
+                start_col):
     """
     画像ファイルを貼り付ける
 
@@ -358,7 +354,6 @@ def paste_image(ws,
     img = openpyxl.drawing.image.Image(image_path)
     img_loc = get_location_symbol(start_row, start_col)
     ws.add_image(img, img_loc)
-
 
 def freeze_header_and_index(ws,
                             idx_row,
@@ -377,7 +372,6 @@ def freeze_header_and_index(ws,
     """
     cell_loc = get_location_symbol(idx_row, idx_col)
     ws.freeze_panes = cell_loc
-
 
 def merge_cells(ws,
                 start_row,
@@ -404,4 +398,3 @@ def merge_cells(ws,
                    start_column=start_col,
                    end_row=end_row,
                    end_column=end_col)
-
