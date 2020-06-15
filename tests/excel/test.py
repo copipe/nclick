@@ -2,7 +2,6 @@ import sys
 from copy import copy
 import warnings
 import codecs
-warnings.filterwarnings(action='ignore', module='sklearn', message='^internal gelsd')
 
 import numpy as np
 import pandas as pd
@@ -15,9 +14,6 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, median_absolute_error
 import openpyxl as px
-
-#from writing_tools import *
-#from cell_styles import *
 
 from nclick.excel import writing_tools as wt
 from nclick.excel import cell_styles as cs
@@ -45,6 +41,7 @@ def yyplot(y_true, y_pred, output_path):
     plt.savefig(output_path)
     plt.close()
 
+warnings.filterwarnings(action='ignore', module='sklearn', message='^internal gelsd')
 codecs.register(usascii)
 wb = px.Workbook()
 
@@ -89,7 +86,6 @@ X_scaler = StandardScaler()
 X_scaler.fit(X_train)
 X_train = X_scaler.transform(X_train)
 X_test = X_scaler.transform(X_test)
-
 
 # モデル定義
 lr = LinearRegression()
@@ -154,8 +150,6 @@ wt.rotate_text(ws, 90, 4, 2)
 wt.autoresize_columns_width(ws, ratio=1.5)
 wt.set_column_width(ws, 2, 5)
 wt.set_row_height(ws, 2, 25)
-
-
 
 # 保存
 default_sheet = wb['Sheet']
