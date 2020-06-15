@@ -1,0 +1,1 @@
+from nclick.version import __version__

@@ -2,7 +2,6 @@ import sys
 from copy import copy
 import warnings
 import codecs
-sys.path.append('..')
 warnings.filterwarnings(action='ignore', module='sklearn', message='^internal gelsd')
 
 import numpy as np
@@ -15,9 +14,13 @@ from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, median_absolute_error
+import openpyxl as px
 
-from to_excel import *
-from cell_style import *
+#from writing_tools import *
+#from cell_styles import *
+
+from nclick.excel import writing_tools as wt
+from nclick.excel import cell_styles as cs
 
 
 def usascii(name):
@@ -43,7 +46,7 @@ def yyplot(y_true, y_pred, output_path):
     plt.close()
 
 codecs.register(usascii)
-wb = Workbook()
+wb = px.Workbook()
 
 # dataset Sheet
 boston = load_boston()
@@ -54,29 +57,29 @@ Xy[target] = boston.target
 n_sample, n_feats = Xy.shape
 
 ws = wb.create_sheet(title='dataset')
-dataframe_to_sheet(Xy, ws, start_row=1, start_col=1, index_cols_num=0)
-autoresize_columns_width(ws, ratio=1.7)
+wt.dataframe_to_sheet(Xy, ws, start_row=1, start_col=1, index_cols_num=0)
+wt.autoresize_columns_width(ws, ratio=1.7)
 
 # feature correlation Sheet
 ws = wb.create_sheet(title='feature correlation')
 corr = (Xy.corr()
           .reset_index()
           .rename(columns={'index':'feature_name'}))
-dataframe_to_sheet(corr,
-                   ws,
-                   start_row=1,
-                   start_col=1,
-                   index_cols_num=1,
-                   number_format='0.###')
+wt.dataframe_to_sheet(corr,
+                      ws,
+                      start_row=1,
+                      start_col=1,
+                      index_cols_num=1,
+                      number_format='0.###')
 
-set_conditinal_format(ws,
-                      colorscale_02,
-                      2,
-                      2+n_feats,
-                      2,
-                      2+n_feats)
-freeze_header_and_index(ws, 2, 2)
-autoresize_columns_width(ws, ratio=2.5)
+wt.set_conditinal_format(ws,
+                         cs.colorscale_02,
+                         2,
+                         2+n_feats,
+                         2,
+                         2+n_feats)
+wt.freeze_header_and_index(ws, 2, 2)
+wt.autoresize_columns_width(ws, ratio=2.5)
 
 # データ準備
 Xy_train, Xy_test = train_test_split(Xy, test_size=0.3, random_state=0)
@@ -105,16 +108,16 @@ for i, (model, model_symbol, model_name) in enumerate(model_set):
     eval_result = evaluate(y_train, y_train_pred)
     filepath = f'result/{model_symbol}_train.png'
     yyplot(y_train, y_train_pred, filepath)
-    dataframe_to_sheet(eval_result,
-                       ws,
-                       start_row=14,
-                       start_col=4+i*22,
-                       index_cols_num=0,
-                       number_format='0.000')
-    paste_image(ws,
-                filepath,
-                start_row=4,
-                start_col=8+i*22)
+    wt.dataframe_to_sheet(eval_result,
+                          ws,
+                          start_row=14,
+                          start_col=4+i*22,
+                          index_cols_num=0,
+                          number_format='0.000')
+    wt.paste_image(ws,
+                   filepath,
+                   start_row=4,
+                   start_col=8+i*22)
 
 
     # 予測（試験データ）
@@ -122,35 +125,35 @@ for i, (model, model_symbol, model_name) in enumerate(model_set):
     eval_result = evaluate(y_test, y_test_pred)
     filepath = f'result/{model_symbol}_test.png'
     yyplot(y_test, y_test_pred, filepath)
-    dataframe_to_sheet(eval_result,
-                       ws,
-                       start_row=40,
-                       start_col=4+i*22,
-                       index_cols_num=0,
-                       number_format='0.000')
-    paste_image(ws,
-                filepath,
-                start_row=30,
-                start_col=8+i*22)
+    wt.dataframe_to_sheet(eval_result,
+                          ws,
+                          start_row=40,
+                          start_col=4+i*22,
+                          index_cols_num=0,
+                          number_format='0.000')
+    wt.paste_image(ws,
+                   filepath,
+                   start_row=30,
+                   start_col=8+i*22)
 
-    merge_cells(ws, 2, 2, 4+i*22, 24+i*22)
-    set_value(ws, model_name, 2, 4+i*22)
-    set_style(ws, style_03, 2, 4+i*22)
+    wt.merge_cells(ws, 2, 2, 4+i*22, 24+i*22)
+    wt.set_value(ws, model_name, 2, 4+i*22)
+    wt.set_style(ws, cs.style_03, 2, 4+i*22)
 
-merge_cells(ws, 4, 25, 2, 2)
-set_value(ws, '訓練', 4, 2)
-set_style(ws, style_04, 4, 2)
+wt.merge_cells(ws, 4, 25, 2, 2)
+wt.set_value(ws, '訓練', 4, 2)
+wt.set_style(ws, cs.style_04, 4, 2)
 
-merge_cells(ws, 30, 51, 2, 2)
-set_value(ws, '試験', 30, 2)
-set_style(ws, style_04, 30, 2)
+wt.merge_cells(ws, 30, 51, 2, 2)
+wt.set_value(ws, '試験', 30, 2)
+wt.set_style(ws, cs.style_04, 30, 2)
 
-rotate_text(ws, 90, 30, 2)
-rotate_text(ws, 90, 4, 2)
+wt.rotate_text(ws, 90, 30, 2)
+wt.rotate_text(ws, 90, 4, 2)
 
-autoresize_columns_width(ws, ratio=1.5)
-set_column_width(ws, 2, 5)
-set_row_height(ws, 2, 25)
+wt.autoresize_columns_width(ws, ratio=1.5)
+wt.set_column_width(ws, 2, 5)
+wt.set_row_height(ws, 2, 25)
 
 
 

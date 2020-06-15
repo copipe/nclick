@@ -1,6 +1,7 @@
 from openpyxl.styles import NamedStyle, Font, Border, Side, Alignment, PatternFill
 from openpyxl.formatting.rule import ColorScaleRule
 
+
 # 薄緑（主にheader用)
 style_00 = NamedStyle(name="style_00",
                       font=Font(bold=True, size=10.5),
@@ -89,4 +90,3 @@ colorscale_02 = ColorScaleRule(start_type='num',
                                end_type='num',
                                end_value=1,
                                end_color='ca0020')
- 

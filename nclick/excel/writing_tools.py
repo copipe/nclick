@@ -1,11 +1,9 @@
 from copy import copy
 
-import openpyxl
-from openpyxl import Workbook
-from openpyxl.utils import get_column_letter
+import openpyxl as px
 from openpyxl.utils.dataframe import dataframe_to_rows
 
-from cell_style import *
+from nclick.excel import cell_styles as cs
 
 
 def get_location_symbol(row_idx,
@@ -28,9 +26,8 @@ def get_location_symbol(row_idx,
     Notes
     ----------
     Excelの添字は１から始まることに注意
-
-    """
-    location_symbol = f'{get_column_letter(col_idx)}{row_idx}'
+  """
+    location_symbol = f'{px.utils.get_column_letter(col_idx)}{row_idx}'
     return location_symbol
 
 def set_value(ws,
@@ -192,9 +189,9 @@ def dataframe_to_sheet(df,
                        start_col=1,
                        header=True,
                        index_cols_num=0,
-                       header_style=style_00,
-                       index_style=style_01,
-                       cell_style=style_02,
+                       header_style=cs.style_00,
+                       index_style=cs.style_01,
+                       cell_style=cs.style_02,
                        number_format={}):
     """
     データフレームを書き出す
@@ -291,7 +288,7 @@ def set_column_width(ws,
     width : float
         カラムの幅
     """
-    col_symbol = get_column_letter(col_idx)
+    col_symbol = px.utils.get_column_letter(col_idx)
     ws.column_dimensions[col_symbol].width = width
 
 def set_row_height(ws,
@@ -351,7 +348,7 @@ def paste_image(ws,
     start_col : integer
         画像の左上にあたるセルの列番号
     """
-    img = openpyxl.drawing.image.Image(image_path)
+    img = px.drawing.image.Image(image_path)
     img_loc = get_location_symbol(start_row, start_col)
     ws.add_image(img, img_loc)
 
