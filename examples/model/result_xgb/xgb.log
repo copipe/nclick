@@ -1,0 +1,185 @@
+[2020-06-16 17:02:39,273, INFO] ==================================================
+[2020-06-16 17:02:39,273, INFO] Configure
+[2020-06-16 17:02:39,273, INFO] ==================================================
+[2020-06-16 17:02:39,273, INFO] n_repeats: 2, n_splits: 3
+[2020-06-16 17:02:39,273, INFO] categorical_features: ['cat_0', 'cat_1', 'cat_2', 'cat_3', 'cat_4', 'cat_5', 'cat_6', 'cat_7', 'cat_8', 'cat_9']
+[2020-06-16 17:02:39,273, INFO] gbdt_params: 
+{'task': 'clf', 'objective': 'multi:softprob', 'learning_rate': 0.05, 'max_depth': 5, 'gamma': 0.0, 'colsample_bytree': 0.75, 'subsample': 0.9, 'feval': <function xgb_eval_multi_accuracy at 0x7f39144308b0>, 'num_round': 10000, 'early_stopping_rounds': 50, 'verbose': False, 'maximize': True, 'callbacks': [<function xgb_logger.<locals>._callback at 0x7f3913f71310>], 'seed': 0}
+[2020-06-16 17:02:39,274, INFO] ==================================================
+[2020-06-16 17:02:39,274, INFO] Fold0: Tue Jun 16 17:02:39 2020
+[2020-06-16 17:02:39,274, INFO] ==================================================
+[2020-06-16 17:02:57,919, INFO] ==================================================
+[2020-06-16 17:02:57,919, INFO] Configure
+[2020-06-16 17:02:57,919, INFO] ==================================================
+[2020-06-16 17:02:57,919, INFO] n_repeats: 2, n_splits: 3
+[2020-06-16 17:02:57,919, INFO] categorical_features: ['cat_0', 'cat_1', 'cat_2', 'cat_3', 'cat_4', 'cat_5', 'cat_6', 'cat_7', 'cat_8', 'cat_9']
+[2020-06-16 17:02:57,919, INFO] gbdt_params: 
+{'task': 'clf', 'objective': 'multi:softprob', 'learning_rate': 0.05, 'max_depth': 5, 'gamma': 0.0, 'colsample_bytree': 0.75, 'subsample': 0.9, 'feval': <function xgb_eval_multi_accuracy at 0x7f7ec51a68b0>, 'num_round': 10000, 'early_stopping_rounds': 50, 'verbose': False, 'maximize': True, 'callbacks': [<function xgb_logger.<locals>._callback at 0x7f7ec4ce8310>], 'seed': 0}
+[2020-06-16 17:02:57,920, INFO] ==================================================
+[2020-06-16 17:02:57,921, INFO] Fold0: Tue Jun 16 17:02:57 2020
+[2020-06-16 17:02:57,921, INFO] ==================================================
+[2020-06-16 17:03:31,813, INFO] ==================================================
+[2020-06-16 17:03:31,814, INFO] Configure
+[2020-06-16 17:03:31,814, INFO] ==================================================
+[2020-06-16 17:03:31,814, INFO] n_repeats: 2, n_splits: 3
+[2020-06-16 17:03:31,814, INFO] categorical_features: ['cat_0', 'cat_1', 'cat_2', 'cat_3', 'cat_4', 'cat_5', 'cat_6', 'cat_7', 'cat_8', 'cat_9']
+[2020-06-16 17:03:31,814, INFO] gbdt_params: 
+{'task': 'clf', 'objective': 'multi:softprob', 'num_class': 10, 'learning_rate': 0.05, 'max_depth': 5, 'gamma': 0.0, 'colsample_bytree': 0.75, 'subsample': 0.9, 'feval': <function xgb_eval_multi_accuracy at 0x7f08e4bc78b0>, 'num_round': 10000, 'early_stopping_rounds': 50, 'verbose': False, 'maximize': True, 'callbacks': [<function xgb_logger.<locals>._callback at 0x7f08e4709310>], 'seed': 0}
+[2020-06-16 17:03:31,815, INFO] ==================================================
+[2020-06-16 17:03:31,815, INFO] Fold0: Tue Jun 16 17:03:31 2020
+[2020-06-16 17:03:31,815, INFO] ==================================================
+[2020-06-16 17:03:35,419, INFO] [50]	train-merror:0.062852	eval-merror:0.511236	train-multi_accuracy:0.937148	eval-multi_accuracy:0.488764
+[2020-06-16 17:03:35,672, INFO] [100]	train-merror:0.012195	eval-merror:0.513109	train-multi_accuracy:0.987805	eval-multi_accuracy:0.486891
+[2020-06-16 17:03:35,983, INFO] ==================================================
+[2020-06-16 17:03:35,984, INFO] Fold1: Tue Jun 16 17:03:35 2020
+[2020-06-16 17:03:35,985, INFO] ==================================================
+[2020-06-16 17:03:36,264, INFO] [50]	train-merror:0.05717	eval-merror:0.500938	train-multi_accuracy:0.94283	eval-multi_accuracy:0.499062
+[2020-06-16 17:03:36,508, INFO] [100]	train-merror:0.004686	eval-merror:0.506567	train-multi_accuracy:0.995314	eval-multi_accuracy:0.493433
+[2020-06-16 17:03:36,853, INFO] ==================================================
+[2020-06-16 17:03:36,853, INFO] Fold2: Tue Jun 16 17:03:36 2020
+[2020-06-16 17:03:36,853, INFO] ==================================================
+[2020-06-16 17:03:37,150, INFO] [50]	train-merror:0.060918	eval-merror:0.530957	train-multi_accuracy:0.939082	eval-multi_accuracy:0.469043
+[2020-06-16 17:03:37,377, INFO] [100]	train-merror:0.008435	eval-merror:0.512195	train-multi_accuracy:0.991565	eval-multi_accuracy:0.487805
+[2020-06-16 17:03:37,682, INFO] ==================================================
+[2020-06-16 17:03:37,682, INFO] Fold3: Tue Jun 16 17:03:37 2020
+[2020-06-16 17:03:37,682, INFO] ==================================================
+[2020-06-16 17:03:37,960, INFO] [50]	train-merror:0.073171	eval-merror:0.509363	train-multi_accuracy:0.926829	eval-multi_accuracy:0.490637
+[2020-06-16 17:03:38,199, INFO] [100]	train-merror:0.007505	eval-merror:0.507491	train-multi_accuracy:0.992495	eval-multi_accuracy:0.492509
+[2020-06-16 17:03:38,487, INFO] ==================================================
+[2020-06-16 17:03:38,487, INFO] Fold4: Tue Jun 16 17:03:38 2020
+[2020-06-16 17:03:38,487, INFO] ==================================================
+[2020-06-16 17:03:38,810, INFO] [50]	train-merror:0.058107	eval-merror:0.517824	train-multi_accuracy:0.941893	eval-multi_accuracy:0.482176
+[2020-06-16 17:03:39,045, INFO] [100]	train-merror:0.002812	eval-merror:0.510319	train-multi_accuracy:0.997188	eval-multi_accuracy:0.489681
+[2020-06-16 17:03:39,380, INFO] ==================================================
+[2020-06-16 17:03:39,380, INFO] Fold5: Tue Jun 16 17:03:39 2020
+[2020-06-16 17:03:39,380, INFO] ==================================================
+[2020-06-16 17:03:39,679, INFO] [50]	train-merror:0.060918	eval-merror:0.525328	train-multi_accuracy:0.939082	eval-multi_accuracy:0.474672
+[2020-06-16 17:03:39,958, INFO] [100]	train-merror:0.009372	eval-merror:0.499062	train-multi_accuracy:0.990628	eval-multi_accuracy:0.500938
+[2020-06-16 17:03:49,228, INFO] ==================================================
+[2020-06-16 17:03:49,229, INFO] Configure
+[2020-06-16 17:03:49,229, INFO] ==================================================
+[2020-06-16 17:03:49,229, INFO] n_repeats: 2, n_splits: 3
+[2020-06-16 17:03:49,229, INFO] categorical_features: ['cat_0', 'cat_1', 'cat_2', 'cat_3', 'cat_4', 'cat_5', 'cat_6', 'cat_7', 'cat_8', 'cat_9']
+[2020-06-16 17:03:49,229, INFO] gbdt_params: 
+{'objective': 'multi:softprob', 'num_class': 10, 'learning_rate': 0.05, 'max_depth': 5, 'gamma': 0.0, 'colsample_bytree': 0.75, 'subsample': 0.9, 'feval': <function xgb_eval_multi_accuracy at 0x7f3c552368b0>, 'num_round': 10000, 'early_stopping_rounds': 50, 'verbose': False, 'maximize': True, 'callbacks': [<function xgb_logger.<locals>._callback at 0x7f3c54d77310>], 'seed': 0}
+[2020-06-16 17:03:49,230, INFO] ==================================================
+[2020-06-16 17:03:49,230, INFO] Fold0: Tue Jun 16 17:03:49 2020
+[2020-06-16 17:03:49,230, INFO] ==================================================
+[2020-06-16 17:03:53,104, INFO] [50]	train-merror:0.062852	eval-merror:0.511236	train-multi_accuracy:0.937148	eval-multi_accuracy:0.488764
+[2020-06-16 17:03:53,338, INFO] [100]	train-merror:0.012195	eval-merror:0.513109	train-multi_accuracy:0.987805	eval-multi_accuracy:0.486891
+[2020-06-16 17:03:53,654, INFO] ==================================================
+[2020-06-16 17:03:53,655, INFO] Fold1: Tue Jun 16 17:03:53 2020
+[2020-06-16 17:03:53,656, INFO] ==================================================
+[2020-06-16 17:03:53,949, INFO] [50]	train-merror:0.05717	eval-merror:0.500938	train-multi_accuracy:0.94283	eval-multi_accuracy:0.499062
+[2020-06-16 17:03:54,169, INFO] [100]	train-merror:0.004686	eval-merror:0.506567	train-multi_accuracy:0.995314	eval-multi_accuracy:0.493433
+[2020-06-16 17:03:54,491, INFO] ==================================================
+[2020-06-16 17:03:54,491, INFO] Fold2: Tue Jun 16 17:03:54 2020
+[2020-06-16 17:03:54,491, INFO] ==================================================
+[2020-06-16 17:03:54,757, INFO] [50]	train-merror:0.060918	eval-merror:0.530957	train-multi_accuracy:0.939082	eval-multi_accuracy:0.469043
+[2020-06-16 17:03:54,984, INFO] [100]	train-merror:0.008435	eval-merror:0.512195	train-multi_accuracy:0.991565	eval-multi_accuracy:0.487805
+[2020-06-16 17:03:55,327, INFO] ==================================================
+[2020-06-16 17:03:55,327, INFO] Fold3: Tue Jun 16 17:03:55 2020
+[2020-06-16 17:03:55,327, INFO] ==================================================
+[2020-06-16 17:03:55,620, INFO] [50]	train-merror:0.073171	eval-merror:0.509363	train-multi_accuracy:0.926829	eval-multi_accuracy:0.490637
+[2020-06-16 17:03:55,845, INFO] [100]	train-merror:0.007505	eval-merror:0.507491	train-multi_accuracy:0.992495	eval-multi_accuracy:0.492509
+[2020-06-16 17:03:56,149, INFO] ==================================================
+[2020-06-16 17:03:56,149, INFO] Fold4: Tue Jun 16 17:03:56 2020
+[2020-06-16 17:03:56,149, INFO] ==================================================
+[2020-06-16 17:03:56,500, INFO] [50]	train-merror:0.058107	eval-merror:0.517824	train-multi_accuracy:0.941893	eval-multi_accuracy:0.482176
+[2020-06-16 17:03:56,788, INFO] [100]	train-merror:0.002812	eval-merror:0.510319	train-multi_accuracy:0.997188	eval-multi_accuracy:0.489681
+[2020-06-16 17:03:57,118, INFO] ==================================================
+[2020-06-16 17:03:57,119, INFO] Fold5: Tue Jun 16 17:03:57 2020
+[2020-06-16 17:03:57,119, INFO] ==================================================
+[2020-06-16 17:03:57,431, INFO] [50]	train-merror:0.060918	eval-merror:0.525328	train-multi_accuracy:0.939082	eval-multi_accuracy:0.474672
+[2020-06-16 17:03:57,838, INFO] [100]	train-merror:0.009372	eval-merror:0.499062	train-multi_accuracy:0.990628	eval-multi_accuracy:0.500938
+[2020-06-16 17:05:01,180, INFO] ==================================================
+[2020-06-16 17:05:01,180, INFO] Configure
+[2020-06-16 17:05:01,180, INFO] ==================================================
+[2020-06-16 17:05:01,180, INFO] n_repeats: 2, n_splits: 3
+[2020-06-16 17:05:01,180, INFO] categorical_features: ['cat_0', 'cat_1', 'cat_2', 'cat_3', 'cat_4', 'cat_5', 'cat_6', 'cat_7', 'cat_8', 'cat_9']
+[2020-06-16 17:05:01,180, INFO] gbdt_params: 
+{'objective': 'multi:softprob', 'num_class': 10, 'learning_rate': 0.05, 'max_depth': 5, 'gamma': 0.0, 'colsample_bytree': 0.75, 'subsample': 0.9, 'feval': <function xgb_eval_multi_accuracy at 0x7ff28c10e8b0>, 'num_round': 10000, 'early_stopping_rounds': 50, 'verbose': False, 'maximize': True, 'callbacks': [<function xgb_logger.<locals>._callback at 0x7ff28bc4e310>], 'seed': 0}
+[2020-06-16 17:05:01,182, INFO] ==================================================
+[2020-06-16 17:05:01,182, INFO] Fold0: Tue Jun 16 17:05:01 2020
+[2020-06-16 17:05:01,182, INFO] ==================================================
+[2020-06-16 17:05:01,287, INFO] [10]	train-merror:0.195122	eval-merror:0.529963	train-multi_accuracy:0.804878	eval-multi_accuracy:0.470037
+[2020-06-16 17:05:01,341, INFO] [20]	train-merror:0.143527	eval-merror:0.516854	train-multi_accuracy:0.856473	eval-multi_accuracy:0.483146
+[2020-06-16 17:05:01,411, INFO] [30]	train-merror:0.10788	eval-merror:0.518727	train-multi_accuracy:0.89212	eval-multi_accuracy:0.481273
+[2020-06-16 17:05:01,467, INFO] [40]	train-merror:0.079737	eval-merror:0.524345	train-multi_accuracy:0.920263	eval-multi_accuracy:0.475655
+[2020-06-16 17:05:01,526, INFO] [50]	train-merror:0.062852	eval-merror:0.511236	train-multi_accuracy:0.937148	eval-multi_accuracy:0.488764
+[2020-06-16 17:05:01,582, INFO] [60]	train-merror:0.04409	eval-merror:0.509363	train-multi_accuracy:0.95591	eval-multi_accuracy:0.490637
+[2020-06-16 17:05:01,637, INFO] [70]	train-merror:0.031895	eval-merror:0.516854	train-multi_accuracy:0.968105	eval-multi_accuracy:0.483146
+[2020-06-16 17:05:01,698, INFO] [80]	train-merror:0.02439	eval-merror:0.518727	train-multi_accuracy:0.97561	eval-multi_accuracy:0.481273
+[2020-06-16 17:05:01,754, INFO] [90]	train-merror:0.0197	eval-merror:0.514981	train-multi_accuracy:0.9803	eval-multi_accuracy:0.485019
+[2020-06-16 17:05:01,806, INFO] [100]	train-merror:0.012195	eval-merror:0.513109	train-multi_accuracy:0.987805	eval-multi_accuracy:0.486891
+[2020-06-16 17:05:01,861, INFO] [110]	train-merror:0.008443	eval-merror:0.513109	train-multi_accuracy:0.991557	eval-multi_accuracy:0.486891
+[2020-06-16 17:05:21,206, INFO] ==================================================
+[2020-06-16 17:05:21,206, INFO] Fold1: Tue Jun 16 17:05:21 2020
+[2020-06-16 17:05:21,206, INFO] ==================================================
+[2020-06-16 17:05:21,330, INFO] [10]	train-merror:0.165886	eval-merror:0.534709	train-multi_accuracy:0.834114	eval-multi_accuracy:0.465291
+[2020-06-16 17:05:21,407, INFO] [20]	train-merror:0.131209	eval-merror:0.5197	train-multi_accuracy:0.868791	eval-multi_accuracy:0.4803
+[2020-06-16 17:05:21,470, INFO] [30]	train-merror:0.101218	eval-merror:0.512195	train-multi_accuracy:0.898782	eval-multi_accuracy:0.487805
+[2020-06-16 17:05:21,517, INFO] [40]	train-merror:0.075914	eval-merror:0.512195	train-multi_accuracy:0.924086	eval-multi_accuracy:0.487805
+[2020-06-16 17:05:21,564, INFO] [50]	train-merror:0.05717	eval-merror:0.500938	train-multi_accuracy:0.94283	eval-multi_accuracy:0.499062
+[2020-06-16 17:05:21,617, INFO] [60]	train-merror:0.042174	eval-merror:0.497186	train-multi_accuracy:0.957826	eval-multi_accuracy:0.502814
+[2020-06-16 17:05:21,664, INFO] [70]	train-merror:0.032802	eval-merror:0.49531	train-multi_accuracy:0.967198	eval-multi_accuracy:0.50469
+[2020-06-16 17:05:21,711, INFO] [80]	train-merror:0.01687	eval-merror:0.500938	train-multi_accuracy:0.98313	eval-multi_accuracy:0.499062
+[2020-06-16 17:05:21,756, INFO] [90]	train-merror:0.008435	eval-merror:0.500938	train-multi_accuracy:0.991565	eval-multi_accuracy:0.499062
+[2020-06-16 17:05:21,803, INFO] [100]	train-merror:0.004686	eval-merror:0.506567	train-multi_accuracy:0.995314	eval-multi_accuracy:0.493433
+[2020-06-16 17:05:21,849, INFO] [110]	train-merror:0.002812	eval-merror:0.512195	train-multi_accuracy:0.997188	eval-multi_accuracy:0.487805
+[2020-06-16 17:05:24,665, INFO] ==================================================
+[2020-06-16 17:05:24,665, INFO] Fold2: Tue Jun 16 17:05:24 2020
+[2020-06-16 17:05:24,665, INFO] ==================================================
+[2020-06-16 17:05:24,796, INFO] [10]	train-merror:0.158388	eval-merror:0.559099	train-multi_accuracy:0.841612	eval-multi_accuracy:0.440901
+[2020-06-16 17:05:24,864, INFO] [20]	train-merror:0.128397	eval-merror:0.532833	train-multi_accuracy:0.871603	eval-multi_accuracy:0.467167
+[2020-06-16 17:05:24,930, INFO] [30]	train-merror:0.103093	eval-merror:0.530957	train-multi_accuracy:0.896907	eval-multi_accuracy:0.469043
+[2020-06-16 17:05:24,979, INFO] [40]	train-merror:0.079663	eval-merror:0.530957	train-multi_accuracy:0.920337	eval-multi_accuracy:0.469043
+[2020-06-16 17:05:25,024, INFO] [50]	train-merror:0.060918	eval-merror:0.530957	train-multi_accuracy:0.939082	eval-multi_accuracy:0.469043
+[2020-06-16 17:05:25,069, INFO] [60]	train-merror:0.047798	eval-merror:0.523452	train-multi_accuracy:0.952202	eval-multi_accuracy:0.476548
+[2020-06-16 17:05:25,121, INFO] [70]	train-merror:0.031865	eval-merror:0.521576	train-multi_accuracy:0.968135	eval-multi_accuracy:0.478424
+[2020-06-16 17:05:25,196, INFO] [80]	train-merror:0.027179	eval-merror:0.521576	train-multi_accuracy:0.972821	eval-multi_accuracy:0.478424
+[2020-06-16 17:05:25,241, INFO] [90]	train-merror:0.015933	eval-merror:0.515947	train-multi_accuracy:0.984067	eval-multi_accuracy:0.484053
+[2020-06-16 17:05:25,287, INFO] [100]	train-merror:0.008435	eval-merror:0.512195	train-multi_accuracy:0.991565	eval-multi_accuracy:0.487805
+[2020-06-16 17:05:25,332, INFO] [110]	train-merror:0.005623	eval-merror:0.510319	train-multi_accuracy:0.994377	eval-multi_accuracy:0.489681
+[2020-06-16 17:05:27,548, INFO] ==================================================
+[2020-06-16 17:05:27,548, INFO] Fold3: Tue Jun 16 17:05:27 2020
+[2020-06-16 17:05:27,548, INFO] ==================================================
+[2020-06-16 17:05:27,697, INFO] [10]	train-merror:0.202627	eval-merror:0.546816	train-multi_accuracy:0.797373	eval-multi_accuracy:0.453184
+[2020-06-16 17:05:27,768, INFO] [20]	train-merror:0.15666	eval-merror:0.531835	train-multi_accuracy:0.84334	eval-multi_accuracy:0.468165
+[2020-06-16 17:05:27,832, INFO] [30]	train-merror:0.125704	eval-merror:0.514981	train-multi_accuracy:0.874296	eval-multi_accuracy:0.485019
+[2020-06-16 17:05:27,878, INFO] [40]	train-merror:0.097561	eval-merror:0.514981	train-multi_accuracy:0.902439	eval-multi_accuracy:0.485019
+[2020-06-16 17:05:27,926, INFO] [50]	train-merror:0.073171	eval-merror:0.509363	train-multi_accuracy:0.926829	eval-multi_accuracy:0.490637
+[2020-06-16 17:05:27,975, INFO] [60]	train-merror:0.04878	eval-merror:0.5	train-multi_accuracy:0.95122	eval-multi_accuracy:0.5
+[2020-06-16 17:05:28,022, INFO] [70]	train-merror:0.032833	eval-merror:0.507491	train-multi_accuracy:0.967167	eval-multi_accuracy:0.492509
+[2020-06-16 17:05:28,069, INFO] [80]	train-merror:0.017824	eval-merror:0.511236	train-multi_accuracy:0.982176	eval-multi_accuracy:0.488764
+[2020-06-16 17:05:28,121, INFO] [90]	train-merror:0.011257	eval-merror:0.509363	train-multi_accuracy:0.988743	eval-multi_accuracy:0.490637
+[2020-06-16 17:05:28,168, INFO] [100]	train-merror:0.007505	eval-merror:0.507491	train-multi_accuracy:0.992495	eval-multi_accuracy:0.492509
+[2020-06-16 17:05:28,215, INFO] [110]	train-merror:0.003752	eval-merror:0.507491	train-multi_accuracy:0.996248	eval-multi_accuracy:0.492509
+[2020-06-16 17:05:29,529, INFO] ==================================================
+[2020-06-16 17:05:29,529, INFO] Fold4: Tue Jun 16 17:05:29 2020
+[2020-06-16 17:05:29,529, INFO] ==================================================
+[2020-06-16 17:05:29,682, INFO] [10]	train-merror:0.185567	eval-merror:0.529081	train-multi_accuracy:0.814433	eval-multi_accuracy:0.470919
+[2020-06-16 17:05:29,765, INFO] [20]	train-merror:0.149016	eval-merror:0.529081	train-multi_accuracy:0.850984	eval-multi_accuracy:0.470919
+[2020-06-16 17:05:29,818, INFO] [30]	train-merror:0.105904	eval-merror:0.530957	train-multi_accuracy:0.894096	eval-multi_accuracy:0.469043
+[2020-06-16 17:05:29,869, INFO] [40]	train-merror:0.082474	eval-merror:0.525328	train-multi_accuracy:0.917526	eval-multi_accuracy:0.474672
+[2020-06-16 17:05:29,939, INFO] [50]	train-merror:0.058107	eval-merror:0.517824	train-multi_accuracy:0.941893	eval-multi_accuracy:0.482176
+[2020-06-16 17:05:30,016, INFO] [60]	train-merror:0.048735	eval-merror:0.527205	train-multi_accuracy:0.951265	eval-multi_accuracy:0.472795
+[2020-06-16 17:05:30,083, INFO] [70]	train-merror:0.034677	eval-merror:0.512195	train-multi_accuracy:0.965323	eval-multi_accuracy:0.487805
+[2020-06-16 17:05:30,153, INFO] [80]	train-merror:0.017807	eval-merror:0.50469	train-multi_accuracy:0.982193	eval-multi_accuracy:0.49531
+[2020-06-16 17:05:30,212, INFO] [90]	train-merror:0.009372	eval-merror:0.508443	train-multi_accuracy:0.990628	eval-multi_accuracy:0.491557
+[2020-06-16 17:05:30,279, INFO] [100]	train-merror:0.002812	eval-merror:0.510319	train-multi_accuracy:0.997188	eval-multi_accuracy:0.489681
+[2020-06-16 17:05:30,347, INFO] [110]	train-merror:0.000937	eval-merror:0.499062	train-multi_accuracy:0.999063	eval-multi_accuracy:0.500938
+[2020-06-16 17:05:31,517, INFO] ==================================================
+[2020-06-16 17:05:31,518, INFO] Fold5: Tue Jun 16 17:05:31 2020
+[2020-06-16 17:05:31,518, INFO] ==================================================
+[2020-06-16 17:05:31,685, INFO] [10]	train-merror:0.180881	eval-merror:0.527205	train-multi_accuracy:0.819119	eval-multi_accuracy:0.472795
+[2020-06-16 17:05:31,792, INFO] [20]	train-merror:0.133083	eval-merror:0.530957	train-multi_accuracy:0.866917	eval-multi_accuracy:0.469043
+[2020-06-16 17:05:31,860, INFO] [30]	train-merror:0.101218	eval-merror:0.530957	train-multi_accuracy:0.898782	eval-multi_accuracy:0.469043
+[2020-06-16 17:05:31,931, INFO] [40]	train-merror:0.082474	eval-merror:0.523452	train-multi_accuracy:0.917526	eval-multi_accuracy:0.476548
+[2020-06-16 17:05:32,003, INFO] [50]	train-merror:0.060918	eval-merror:0.525328	train-multi_accuracy:0.939082	eval-multi_accuracy:0.474672
+[2020-06-16 17:05:32,192, INFO] [60]	train-merror:0.04686	eval-merror:0.5197	train-multi_accuracy:0.95314	eval-multi_accuracy:0.4803
+[2020-06-16 17:05:32,352, INFO] [70]	train-merror:0.039363	eval-merror:0.514071	train-multi_accuracy:0.960637	eval-multi_accuracy:0.485929
+[2020-06-16 17:05:32,416, INFO] [80]	train-merror:0.026242	eval-merror:0.50469	train-multi_accuracy:0.973758	eval-multi_accuracy:0.49531
+[2020-06-16 17:05:32,487, INFO] [90]	train-merror:0.014058	eval-merror:0.49531	train-multi_accuracy:0.985942	eval-multi_accuracy:0.50469
+[2020-06-16 17:05:32,552, INFO] [100]	train-merror:0.009372	eval-merror:0.499062	train-multi_accuracy:0.990628	eval-multi_accuracy:0.500938
+[2020-06-16 17:05:32,623, INFO] [110]	train-merror:0.008435	eval-merror:0.50469	train-multi_accuracy:0.991565	eval-multi_accuracy:0.49531
