@@ -23,7 +23,6 @@ if __name__ == '__main__':
     with Log.timer('Read Data', logger_name, 'info'):
         boston = load_boston()
         data = pd.DataFrame(boston.data, columns=boston.feature_names)
-        Log.write(f'data.shape: {data.shape}', logger_name, 'info')
 
     # 基本統計量算出
     with Log.timer('Summary Data', logger_name, 'info'):
@@ -32,7 +31,7 @@ if __name__ == '__main__':
         summary_to_excel(ws, data)
 
     # 書き出し
-    with Log.timer('Read Data', logger_name, 'info'):
+    with Log.timer('Write Data', logger_name, 'info'):
         default_sheet = wb['Sheet']
         wb.remove(default_sheet)
         wb.save(output_dir/'basic_aggregation_summary.xlsx')

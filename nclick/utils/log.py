@@ -48,7 +48,7 @@ class Log:
         yield
         message = f"{process_name} ({time.time()-t0:.0f}s)"
         if logger_name:
-            Log.write(logger_name, level, message)
+            Log.write(message, logger_name, level)
         else:
             print(message)
 
@@ -61,9 +61,9 @@ class Log:
                  ):
 
         if logger_name:
-            Log.write(logger_name, level, '='*line_length)
-            Log.write(logger_name, level, message)
-            Log.write(logger_name, level, '='*line_length)
+            Log.write('='*line_length, logger_name, level)
+            Log.write(message, logger_name, level)
+            Log.write('='*line_length, logger_name, level)
         else:
             print('='*line_length)
             print(message)
