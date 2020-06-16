@@ -95,7 +95,6 @@ def describe_more(data):
     des.index = map(lambda en: en2ja[en], des.index)
     return des
 
-
 def summary_to_excel(ws,
                      data):
     """

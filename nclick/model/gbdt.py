@@ -13,7 +13,6 @@ from nclick.model.util import Model
 
 
 class ModelLGB(Model):
-
     def train(self, tr_x, tr_y, va_x, va_y):
 
         tr_x, va_x = self._sampling_feature(tr_x, va_x)
@@ -60,7 +59,6 @@ class ModelLGB(Model):
                })
 
 class ModelXGB(Model):
-
     def train(self, tr_x, tr_y, va_x, va_y):
 
         tr_x, va_x = self._sampling_feature(tr_x, va_x)
@@ -111,7 +109,6 @@ class ModelXGB(Model):
         return pd.DataFrame(fe, columns=['model_name', 'feature', 'gain'])
 
 class ModelCAT(Model):
-
     def train(self, tr_x, tr_y, va_x, va_y):
 
         tr_x, va_x = self._sampling_feature(tr_x, va_x)
@@ -173,7 +170,6 @@ def ModelGBDT(gbdt_config):
         return ModelCAT(**gbdt_config)
 
 def lgb_logger(logger_name, level='info', verbose=50, show_stdv=True):
-
     def _callback(env):
         if verbose > 0 and env.evaluation_result_list and (env.iteration + 1) % verbose == 0:
             result = '\t'.join([_format_eval_result(x, show_stdv) for x in env.evaluation_result_list])
@@ -182,7 +178,6 @@ def lgb_logger(logger_name, level='info', verbose=50, show_stdv=True):
     return _callback
 
 def xgb_logger(logger_name, level='info', verbose=50, show_stdv=True):
-
     def _fmt_metric(value, show_stdv=True):
         """format metric string"""
         if len(value) == 2:
@@ -203,7 +198,6 @@ def xgb_logger(logger_name, level='info', verbose=50, show_stdv=True):
     return _callback
 
 def plot_feature_importance(feature, importance, N):
-
     feature = [f'{f}[{i}]' for i, f in enumerate(feature, start=1)]
     feat = feature[:N][::-1]
     impo = importance.iloc[:N].iloc[::-1]

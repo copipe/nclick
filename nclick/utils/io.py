@@ -2,7 +2,6 @@ import dill
 
 
 class IO:
-
     @classmethod
     def dump_pickle(cls, obj, path):
         with open(path, 'wb') as f:

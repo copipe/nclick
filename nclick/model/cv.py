@@ -6,7 +6,6 @@ from sklearn.model_selection import GroupKFold, RepeatedKFold, RepeatedStratifie
 
 
 class GetCV:
-
     @classmethod
     def KFold(cls, X, n_repeats, n_splits, seed=0):
         cv = []

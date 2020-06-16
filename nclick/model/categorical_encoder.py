@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 
-class EncoderMixin:
 
+class EncoderMixin:
     def __init__(self):
         self.encoder_dict = None
         self.feature = None
@@ -24,7 +24,6 @@ class EncoderMixin:
         return x_encoded
 
 class LabelEncoder(EncoderMixin):
-
     def fit(self, X, y, feature):
         x = X[feature].values
 
@@ -38,7 +37,6 @@ class LabelEncoder(EncoderMixin):
         self.encoder_dict = {cat: i for i, cat in enumerate(self.classes)}
 
 class AsTypeCategory(EncoderMixin):
-
     def fit(self, X, y, feature):
         x = X[feature].values
 
@@ -50,7 +48,6 @@ class AsTypeCategory(EncoderMixin):
         return X[self.feature].astype('category')
 
 class TargetEncoder(EncoderMixin):
-
     def fit(self, X, y, feature):
         avg_target_by_cat = (pd.concat([X[[feature]], y], axis=1)
                                .groupby(feature).mean())

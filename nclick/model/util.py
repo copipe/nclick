@@ -11,7 +11,6 @@ from nclick.model.scaler import get_scaler
 
 
 class Model(metaclass=ABCMeta):
-
     def __init__(self,
                  model_type: str,
                  model_name: str,

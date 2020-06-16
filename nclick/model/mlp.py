@@ -111,7 +111,6 @@ class MLP(nn.Module):
         return x
 
 class ModelMLP(Model):
-
     def train(self, tr_x, tr_y, va_x, va_y):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -249,7 +248,6 @@ class ModelMLP(Model):
         pass
 
 class ModelMLP_CLFREG(Model):
-
     def train(self, tr_x, tr_y, va_x, va_y, classes, weight):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
