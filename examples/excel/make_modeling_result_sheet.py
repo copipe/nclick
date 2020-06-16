@@ -137,7 +137,8 @@ if __name__ == '__main__':
         wt.merge_cells(ws, 2, 2, 4+i*22, 24+i*22)
         wt.set_value(ws, model_name, 2, 4+i*22)
         wt.set_style(ws, cs.style_03, 2, 4+i*22)
-wt.merge_cells(ws, 4, 25, 2, 2)
+
+    wt.merge_cells(ws, 4, 25, 2, 2)
     wt.set_value(ws, '訓練', 4, 2)
     wt.set_style(ws, cs.style_04, 4, 2)
 
