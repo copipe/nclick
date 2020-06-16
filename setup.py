@@ -29,6 +29,7 @@ setup(
         'catboost>=0.17',
         'torch',
         'ipython',
+        'dill',
     ],
     author='copypaste',
     description='Code for Laziness.',

@@ -6,6 +6,7 @@ import lightgbm as lgb
 from lightgbm.callback import _format_eval_result
 import xgboost as xgb
 from catboost import CatBoost, Pool, CatBoostRegressor, CatBoostClassifier
+from sklearn.metrics import accuracy_score
 
 from nclick.utils.log import Log
 from nclick.model.util import Model
@@ -21,8 +22,8 @@ class ModelLGB(Model):
         dtrain = lgb.Dataset(tr_x, tr_y)
         dvalid = lgb.Dataset(va_x, va_y)
         if self.logger_name:
-            Log.write(self.logger_name, 'info', f'(tr_x.shape, tr_y.shape): {tr_x.shape, tr_y.shape}')
-            Log.write(self.logger_name, 'info', f'(va_x.shape, va_y.shape): {va_x.shape, va_y.shape}')
+            Log.write(f'(tr_x.shape, tr_y.shape): {tr_x.shape, tr_y.shape}', self.logger_name, 'info')
+            Log.write(f'(va_x.shape, va_y.shape): {va_x.shape, va_y.shape}', self.logger_name, 'info')
 
         params = dict(self.params)
         num_round = params.pop('num_round')
@@ -171,25 +172,16 @@ def ModelGBDT(gbdt_config):
     if model_type == 'cat':
         return ModelCAT(**gbdt_config)
 
-    def train(self, tr_x, tr_y, va_x, va_y):
-        self.model.train(tr_x, tr_y, va_x, va_y)
-
-    def predict(self, te_x):
-        return self.model.predict(te_x)
-
-    def get_feature_importance(self):
-        return self.model.get_feature_importance()
-
-def lgb_logger(logger_name, level='info', period=50, show_stdv=True):
+def lgb_logger(logger_name, level='info', verbose=50, show_stdv=True):
 
     def _callback(env):
-        if period > 0 and env.evaluation_result_list and (env.iteration + 1) % period == 0:
+        if verbose > 0 and env.evaluation_result_list and (env.iteration + 1) % verbose == 0:
             result = '\t'.join([_format_eval_result(x, show_stdv) for x in env.evaluation_result_list])
-            Log.write(logger_name, level, "[%d]\t%s" % (env.iteration + 1, result))
+            Log.write( "[%d]\t%s" % (env.iteration + 1, result), logger_name, level)
     _callback.order = 10
     return _callback
 
-def xgb_logger(logger_name, level='info', period=50, show_stdv=True):
+def xgb_logger(logger_name, level='info', verbose=50, show_stdv=True):
 
     def _fmt_metric(value, show_stdv=True):
         """format metric string"""
@@ -204,9 +196,9 @@ def xgb_logger(logger_name, level='info', period=50, show_stdv=True):
             raise ValueError("wrong metric value")
 
     def _callback(env):
-        if period > 0 and env.evaluation_result_list and (env.iteration + 1) % period == 0:
+        if verbose > 0 and env.evaluation_result_list and (env.iteration + 1) % verbose == 0:
             result = '\t'.join([_fmt_metric(x, show_stdv) for x in env.evaluation_result_list])
-            Log.write(logger_name, level, "[%d]\t%s" % (env.iteration + 1, result))
+            Log.write("[%d]\t%s" % (env.iteration + 1, result), logger_name, level)
     _callback.order = 10
     return _callback
 
@@ -227,3 +219,15 @@ def plot_feature_importance(feature, importance, N):
     ax.set_axisbelow(True)
     ax.grid(axis='x')
     plt.show()
+
+def lgb_eval_multi_accuracy(y_pred, data):
+    y_true = data.get_label()
+    y_pred = np.argmax(y_pred.reshape(len(y_true), -1), axis=1)
+    acc = accuracy_score(y_true, y_pred)
+    return 'multi_accuracy', acc , True
+
+def xgb_eval_multi_accuracy(y_pred, data):
+    y_true = data.get_label()
+    y_pred = np.argmax(y_pred.reshape(len(y_true), -1), axis=1)
+    acc = accuracy_score(y_true, y_pred)
+    return 'multi_accuracy', acc 
