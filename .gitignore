@@ -3,3 +3,5 @@ dist
 nclick.egg-info
 __pycache__/
 .envrc
+result_*/
+catboost_info/
